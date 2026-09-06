@@ -1,0 +1,55 @@
+{
+  "name": "lastfm-widget",
+  "version": "0.1.0",
+  "description": "Embeddable Last.fm recently-played widget for GitHub profile READMEs, served as SVG from a Cloudflare Worker.",
+  "main": "src/index.ts",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "cf-typegen": "wrangler types"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "cloudflare": {
+    "bindings": {
+      "LASTFM_API_KEY": {
+        "description": "Create one at [last.fm/api/account/create](https://www.last.fm/api/account/create). Only the **API key** is needed, not the shared secret."
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffreyCA/lastfm-recently-played-readme.git"
+  },
+  "keywords": [
+    "lastfm",
+    "github-profile",
+    "readme",
+    "widget",
+    "svg",
+    "cloudflare-workers"
+  ],
+  "author": "JeffreyCA",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/JeffreyCA/lastfm-recently-played-readme/issues"
+  },
+  "homepage": "https://github.com/JeffreyCA/lastfm-recently-played-readme#readme",
+  "dependencies": {
+    "hono": "^4.13.2"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.21.3",
+    "@cloudflare/workers-types": "^5.20260815.1",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10",
+    "wrangler": "^4.123.0"
+  }
+}
